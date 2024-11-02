@@ -31,7 +31,7 @@ export function ThemeToggle() {
 
   // Render the loading state if the component is not yet mounted
   if (!mounted) {
-    return <Skeleton className="absolute right-2 size-10 rounded-md md:right-10" />
+    return <Skeleton className="size-10 rounded-md md:right-10" />
   }
 
   return (
@@ -39,7 +39,7 @@ export function ThemeToggle() {
       variant="outline"
       size="icon"
       onClick={switchTheme}
-      className="absolute right-2 md:right-10"
+      className="md:right-10"
       aria-label="Toggle theme"
     >
       <Sun className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
