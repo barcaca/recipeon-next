@@ -1,4 +1,5 @@
-import { poppins, raleway } from '@/fonts/font'
+import { Navbar } from '@/components/layout/navbar'
+import { cinzel, poppins, raleway } from '@/fonts/font'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Provider } from './providers'
@@ -14,9 +15,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${raleway.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${raleway.variable} ${cinzel.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased">
-        <Provider>{children}</Provider>
+        <Provider>
+          <Navbar />
+          {children}
+        </Provider>
       </body>
     </html>
   )
