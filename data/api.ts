@@ -1,4 +1,6 @@
+'use server'
 import type { TReceita } from '@/types/recipe'
+import { unstable_noStore as noStore } from 'next/cache'
 import { BASE_URL } from './base'
 
 /**
@@ -16,6 +18,7 @@ async function fetchRecipes(
   limit = 8,
   search?: string
 ): Promise<TReceita[]> {
+  noStore()
   const url = search
     ? `${BASE_URL.REST}?nome_like=${search}`
     : `${BASE_URL.REST}?categoria_like=${type}&_page=${page}&_limit=${limit}`
