@@ -16,7 +16,7 @@ export type TReceita = {
   nome: string
   imagem: string
   serve: number
-  tempo: string
+  tempo: number
   categoria: string[]
   descricao: string
   ingredientes: TIngrediente[]
