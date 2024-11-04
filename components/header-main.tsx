@@ -39,7 +39,7 @@ export const headerTitles: HeadersTitles = {
 
 export function HeaderMain({ type }: { type: string }) {
   return (
-    <header className="mb-6 flex w-full items-center justify-between">
+    <header className="flex w-full items-center justify-between">
       <div className="flex flex-col">
         <h1 className="font-bold text-default-900 text-xl lg:text-3xl">{headerTitles[type].id}</h1>
         <p className="text-default-400 text-small lg:text-medium">{headerTitles[type].title}</p>
