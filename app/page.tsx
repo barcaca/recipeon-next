@@ -1,6 +1,7 @@
 import { HeaderMain } from '@/components/header-main'
 import { RecipeButtonsGroups } from '@/components/recipe-buttons-groups'
 import { RecipeCard } from '@/components/recipe-card'
+import { RecipePagination } from '@/components/recipe-pagination'
 import { getRecipes } from '@/data/api'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
@@ -8,8 +9,11 @@ type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const type = (await searchParams).type || 'breakfast'
   const search = (await searchParams).search || undefined
+  const page = Number((await searchParams).page) || 1
+  const limit = 8
   const isSearch = search ? 'search' : type
-  const receitas = await getRecipes(type as string, 1, 8, search as string)
+  const { recipes, totalRecipes } = await getRecipes(type as string, page, limit, search as string)
+  const totalPages = Math.ceil(totalRecipes / limit)
 
   return (
     <main className="my-6 flex w-full flex-col items-center">
@@ -17,10 +21,16 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         <HeaderMain type={isSearch as string} />
         <RecipeButtonsGroups type={isSearch as string} />
         <div className="grid grid-cols-1 gap-2 min-[550px]:grid-cols-2">
-          {receitas.map(receita => (
+          {recipes.map(receita => (
             <RecipeCard key={receita.id} receita={receita} />
           ))}
         </div>
+        <RecipePagination
+          page={page}
+          totalPage={totalPages}
+          search={search as string}
+          type={type as string}
+        />
       </div>
     </main>
   )
