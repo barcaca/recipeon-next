@@ -1,3 +1,4 @@
+import { Footer } from '@/components/layout/footer'
 import { Navbar } from '@/components/layout/navbar'
 import { cinzel, poppins, raleway } from '@/fonts/font'
 import '@/styles/globals.css'
@@ -24,6 +25,7 @@ export default function RootLayout({
         <Provider>
           <Navbar />
           {children}
+          <Footer />
         </Provider>
       </body>
     </html>
