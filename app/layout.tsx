@@ -1,5 +1,6 @@
 import { Footer } from '@/components/layout/footer'
 import { Navbar } from '@/components/layout/navbar'
+import { Toaster } from '@/components/ui/sonner'
 import { cinzel, poppins, raleway } from '@/fonts/font'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster richColors position="top-center" />
         </Provider>
       </body>
     </html>
