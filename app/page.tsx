@@ -2,7 +2,9 @@ import { HeaderMain } from '@/components/header-main'
 import { RecipeButtonsGroups } from '@/components/recipe-buttons-groups'
 import { RecipeCard } from '@/components/recipe-card'
 import { RecipePagination } from '@/components/recipe-pagination'
+import { RecipeCardSkeleton } from '@/components/skeleton/recipe-card-skeleton'
 import { getRecipes } from '@/data/api'
+import { Suspense } from 'react'
 
 type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>
 
@@ -22,7 +24,9 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         <RecipeButtonsGroups type={isSearch as string} />
         <div className="grid grid-cols-1 gap-2 min-[550px]:grid-cols-2">
           {recipes.map(receita => (
-            <RecipeCard key={receita.id} receita={receita} />
+            <Suspense key={receita.id} fallback={<RecipeCardSkeleton />}>
+              <RecipeCard receita={receita} />
+            </Suspense>
           ))}
         </div>
         <RecipePagination
