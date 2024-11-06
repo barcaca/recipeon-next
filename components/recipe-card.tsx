@@ -1,12 +1,16 @@
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import type { TReceita } from '@/types/recipe'
-import { BookTextIcon, ClockIcon, Sprout, Trash2Icon, UserIcon } from 'lucide-react'
+import { BookTextIcon, ClockIcon, Sprout, UserIcon } from 'lucide-react'
 import Image from 'next/image'
-import { Button } from './ui/button'
+import { RecipeDialogDelete } from './recipe-dialog-delete'
 
 export function RecipeCard({ receita }: { receita: TReceita }) {
   return (
-    <Card className="flex h-auto flex-col overflow-visible text-foreground shadow-md ">
+    <Card
+      className="flex h-auto flex-col overflow-visible text-foreground shadow-md"
+      data-id={receita.id}
+    >
       <div className="flex h-auto w-full flex-auto flex-col gap-4 overflow-visible break-words p-3 text-left subpixel-antialiased md:flex-row md:items-center">
         <div className="w-full max-w-52 self-center overflow-visible">
           <Image
@@ -40,9 +44,7 @@ export function RecipeCard({ receita }: { receita: TReceita }) {
               <BookTextIcon className="size-4 text-inherit" />
               Receita
             </Button>
-            <Button variant={'destructive'} size={'icon'}>
-              <Trash2Icon className="size-4 text-inherit" />
-            </Button>
+            <RecipeDialogDelete id={receita.id} />
           </CardFooter>
         </div>
       </div>
