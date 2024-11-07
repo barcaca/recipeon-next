@@ -1,14 +1,14 @@
-import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import type { TReceita } from '@/types/recipe'
-import { BookTextIcon, ClockIcon, Sprout, UserIcon } from 'lucide-react'
+import { ClockIcon, Sprout, UserIcon } from 'lucide-react'
 import Image from 'next/image'
 import { RecipeDialogDelete } from './recipe-dialog-delete'
+import { RecipeDialogView } from './recipe-dialog-view'
 
 export function RecipeCard({ receita }: { receita: TReceita }) {
   return (
     <Card
-      className="flex h-auto flex-col overflow-visible text-foreground shadow-md"
+      className="flex h-auto flex-col overflow-visible text-foreground shadow-shape"
       data-id={receita.id}
     >
       <div className="flex h-auto w-full flex-auto flex-col gap-4 overflow-visible break-words p-3 text-left subpixel-antialiased md:flex-row md:items-center">
@@ -40,10 +40,7 @@ export function RecipeCard({ receita }: { receita: TReceita }) {
             </div>
           </CardContent>
           <CardFooter className="justify-between gap-1 p-0">
-            <Button>
-              <BookTextIcon className="size-4 text-inherit" />
-              Receita
-            </Button>
+            <RecipeDialogView receita={receita} />
             <RecipeDialogDelete id={receita.id} />
           </CardFooter>
         </div>
