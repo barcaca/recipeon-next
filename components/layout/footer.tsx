@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function Footer() {
   return (
-    <footer className="h-16 w-full bg-background">
+    <footer className="min-h-16 w-full bg-background">
       <div className="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-2 p-6 sm:flex-row sm:py-3">
         <p className="order-2 font-sans text-muted-foreground text-sm sm:order-1">
           © 2024 Luan Barcaça. Alura Desafio
