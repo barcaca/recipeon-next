@@ -19,7 +19,7 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
 
   return (
     <main className="my-6 flex w-full flex-col items-center">
-      <div className="w-full max-w-screen-lg space-y-6 px-4 sm:px-6">
+      <div className="w-full max-w-screen-xl space-y-6 px-4 sm:px-6">
         <HeaderMain type={isSearch as string} />
         <RecipeButtonsGroups type={isSearch as string} />
         <div className="grid grid-cols-1 gap-2 min-[550px]:grid-cols-2">
