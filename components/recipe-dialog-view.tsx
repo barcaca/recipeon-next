@@ -98,11 +98,13 @@ export function RecipeDialogView({ receita }: { receita: TReceita }) {
               </table>
             </TabsContent>
             <TabsContent value="preparo" className="p-1 ">
-              <ul className="divide-y divide-border">
+              <ul className="ml-2 divide-y divide-border border-primary border-l">
                 {receita.passos.map((step, i) => (
                   // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  <li key={i} className="flex items-center gap-x-4 py-5">
-                    <span className="font-heading">{(i + 1).toString().padStart(2, '0')}</span>
+                  <li key={i} className="relative flex items-center gap-x-4 py-5">
+                    <span className="-left-4 relative inline-flex size-8 items-center justify-center rounded-full bg-popover p-1 font-heading text-popover-foreground">
+                      {(i + 1).toString().padStart(2, '0')}
+                    </span>
                     <p className="font-body text-muted-foreground text-sm ">{step}</p>
                   </li>
                 ))}
