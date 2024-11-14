@@ -53,7 +53,10 @@ export function InputIngredients() {
       </h3>
       <div className="relative flex flex-col overflow-y-scroll">
         {fields.map((field, index) => (
-          <div key={field.id} className="flex items-center gap-2 p-1">
+          <div
+            key={field.id}
+            className="relative flex flex-col gap-2 p-1 sm:flex-row md:flex-col lg:flex-row"
+          >
             <div className="flex">
               <FormField
                 control={control}
@@ -121,7 +124,7 @@ export function InputIngredients() {
               )}
             />
             <Button
-              className="mt-6"
+              className="absolute top-3 right-0 mt-6 sm:relative md:absolute lg:relative"
               type="button"
               variant="destructive"
               size="icon"

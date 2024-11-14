@@ -40,7 +40,7 @@ export function InputSteps() {
                     />
                   </FormControl>
                   <Button
-                    className=""
+                    className="shrink-0"
                     type="button"
                     variant="destructive"
                     size="icon"

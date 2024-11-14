@@ -37,44 +37,44 @@ export function InputFile() {
       name="imagem"
       render={({ field: { value, onChange, ...fieldProps }, fieldState }) => (
         <FormItem className="relative">
-          <FormControl className="peer">
-            <FormLabel className="relative flex flex-col gap-2">
-              <Input
-                className="absolute inset-0 z-10 h-full w-full p-0 opacity-0"
-                type="file"
-                accept="image/*"
-                onChange={e => {
-                  handleImageChange(e)
-                  onChange(e.target.files?.[0])
-                }}
-                {...fieldProps}
-              />
-              <div className="flex gap-2">
-                <ImageIcon size={16} />
-                <span> Cover Photo</span>
+          <FormLabel className="relative flex flex-col gap-2">
+            <div className="flex gap-2">
+              <ImageIcon size={16} />
+              <span> Cover Photo</span>
+            </div>
+            {selectedImage ? (
+              <div className="relative flex h-40 w-full flex-col items-center justify-center rounded-md border border-dashed ">
+                <Image
+                  src={selectedImage.url}
+                  alt={selectedImage.name}
+                  width={192}
+                  height={154}
+                  className="h-full w-full object-cover"
+                />
               </div>
-              {selectedImage ? (
-                <div className="relative flex h-40 w-full flex-col items-center justify-center rounded-md border border-dashed ">
-                  <Image
-                    src={selectedImage.url}
-                    alt={selectedImage.name}
-                    width={192}
-                    height={154}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              ) : (
-                <div className="relative flex h-40 w-full flex-col items-center justify-center rounded-md border border-dashed">
-                  <UploadCloudIcon size={40} className="text-primary" />
-                  <h2 className="text-center text-muted-foreground text-xs">
-                    PNG, JPG or BMP, max size 5MB
-                  </h2>
-                  <h4 className="text-center font-medium text-card-foreground text-sm">
-                    Arraste ou clique para fazer upload
-                  </h4>
-                </div>
-              )}
-            </FormLabel>
+            ) : (
+              <div className="relative flex h-40 w-full flex-col items-center justify-center rounded-md border border-dashed">
+                <UploadCloudIcon size={40} className="text-primary" />
+                <h2 className="text-center text-muted-foreground text-xs">
+                  PNG, JPG or BMP, max size 5MB
+                </h2>
+                <h4 className="text-center font-medium text-card-foreground text-sm">
+                  Arraste ou clique para fazer upload
+                </h4>
+              </div>
+            )}
+          </FormLabel>
+          <FormControl className="peer">
+            <Input
+              className="absolute inset-0 z-10 h-full w-full p-0 opacity-0"
+              type="file"
+              accept="image/*"
+              onChange={e => {
+                handleImageChange(e)
+                onChange(e.target.files?.[0])
+              }}
+              {...fieldProps}
+            />
           </FormControl>
           <Button
             type="button"

@@ -47,7 +47,7 @@ export function CreateForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         id="recipe-form"
         name="recipe-form"
-        className="flex h-[660px] w-full gap-5"
+        className="flex w-full flex-col gap-5 md:h-[660px] md:flex-row"
       >
         <FormDetails />
         <FormSteps />
@@ -58,11 +58,11 @@ export function CreateForm() {
 
 function FormDetails() {
   return (
-    <Card className="flex h-full w-full max-w-[450px] flex-col gap-2 overflow-x-hidden shadow-shape">
+    <Card className="flex h-full w-full flex-col gap-2 overflow-x-hidden shadow-shape lg:max-w-[450px]">
       <CardHeader className="sticky top-0 z-20 w-fit rounded-br-xl bg-primary px-3 py-3 text-primary-foreground">
         <CardTitle className="font-heading">Detalhes da Receita</CardTitle>
       </CardHeader>
-      <CardContent className="flex h-full flex-col gap-2 font-body has-[label]:font-heading">
+      <CardContent className="flex h-full flex-col gap-2 p-3 font-body has-[label]:font-heading sm:p-6">
         <InputFile />
         <InputText icon={BookOpenTextIcon} label="Nome" name="nome" placeholder="Nome da Receita" />
         <div className="flex gap-2">
@@ -100,7 +100,7 @@ function FormSteps() {
       <CardHeader className="sticky top-0 z-20 w-fit rounded-br-xl bg-primary px-3 py-3 text-primary-foreground">
         <CardTitle className="font-heading">Instruções</CardTitle>
       </CardHeader>
-      <CardContent className="flex h-full flex-col gap-2 font-body has-[label]:font-heading">
+      <CardContent className="flex h-full flex-col gap-2 p-3 font-body has-[label]:font-heading sm:p-6">
         <InputIngredients />
         <InputSteps />
       </CardContent>
