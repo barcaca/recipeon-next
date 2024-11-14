@@ -1,7 +1,8 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { ErrorTooltip } from '@/components/error-tooltip'
+import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { useFormContext } from 'react-hook-form'
-import { Textarea } from './ui/textarea'
 
 interface InputTextProps {
   label: string
@@ -25,7 +26,7 @@ export function InputText({
       name={name}
       control={control}
       render={({ field, fieldState }) => (
-        <FormItem>
+        <FormItem className="relative">
           <FormLabel className="flex items-center gap-2">
             {IconComponent && <IconComponent className="h-4 w-4 flex-none" />}
             {label}
@@ -34,10 +35,15 @@ export function InputText({
             {type === 'textarea' ? (
               <Textarea rows={5} className="resize-none" placeholder={placeholder} {...field} />
             ) : (
-              <Input type={type} placeholder={placeholder} {...field} />
+              <Input
+                className={type === 'number' ? 'appearance-none' : ''}
+                type={type}
+                placeholder={placeholder}
+                {...field}
+              />
             )}
           </FormControl>
-          <FormMessage>{fieldState.error?.message}</FormMessage>
+          <ErrorTooltip fieldState={fieldState} />
         </FormItem>
       )}
     />
