@@ -86,7 +86,7 @@ export function RecipeDialogView({ receita }: { receita: TReceita }) {
                       <td className="w-full py-4 pr-3 pl-4 font-medium text-card-foreground text-sm sm:pl-3">
                         {item.nome}
                       </td>
-                      <td className="px-3 py-4 text-right text-muted-foreground text-sm">
+                      <td className="text-nowrap px-3 py-4 text-right text-muted-foreground text-sm">
                         {item.quantidade}
                       </td>
                       <td className="text-nowrap px-3 py-4 text-right text-muted-foreground text-sm">
@@ -98,7 +98,7 @@ export function RecipeDialogView({ receita }: { receita: TReceita }) {
               </table>
             </TabsContent>
             <TabsContent value="preparo" className="p-1 ">
-              <ul className="ml-2 divide-y divide-border border-primary border-l">
+              <ul className="ml-2 border-primary border-l">
                 {receita.passos.map((step, i) => (
                   // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                   <li key={i} className="relative flex items-center gap-x-4 py-5">
