@@ -15,6 +15,8 @@ export function Footer() {
             href="https://github.com/barcaca/recipeon-next"
             className={cn(buttonVariants({ variant: 'outline', size: 'icon' }))}
             target="_blank"
+            rel="noreferrer"
+            aria-label="Github repo"
           >
             <Icons.gitHub className="size-6 fill-foreground" />
           </Link>
@@ -22,6 +24,8 @@ export function Footer() {
             href="'https://www.linkedin.com/in/luan-barcaça/'"
             className={cn(buttonVariants({ variant: 'outline', size: 'icon' }))}
             target="_blank"
+            rel="noreferrer"
+            aria-label="Linkedin profile"
           >
             <Icons.linkedin className="size-6 fill-foreground" />
           </Link>

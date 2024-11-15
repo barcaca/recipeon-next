@@ -19,7 +19,8 @@ export function RecipeDialogDelete({ id }: { id: number }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'destructive'} size={'icon'}>
+        <Button variant={'destructive'} size={'icon'} aria-label="Excluir">
+          <span className="sr-only">Excluir</span>
           <Trash2Icon className="size-4 text-inherit" />
         </Button>
       </DialogTrigger>
