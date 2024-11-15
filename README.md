@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Recipeon
 
-## Getting Started
+Este projeto é uma aplicação desenvolvida para o desafio AluraGeek, voltada para o criação e visualização de receitas. O Recipeon permite aos usuários pesquisar, visualizar, criar e deletar receitas com uma interface intuitiva e moderna, utilizando json-server para simulação de back-end.
 
-First, run the development server:
+## Indice
+- 🖼️ [Screenshot](#-screenshot)
+- 🛠️ [Tecnologias](#-tecnologias)
+- 🏗️ [Funcionalidades](#-funcionalidades)
+- 🔗 [Links](#-links)
+- 🏆 [Conclusão](#-conclusão)
+- 📚 [Recursos úteis](#-recursos-úteis)
+- 👤 [Autor](#-autor)
+- 📜 [Licença](#-licença)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🖼️ Screenshots
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Dark Thumb](/public/thumbanil-dark.png)
+![Light Thumb](/public/thumbanil-light.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Tecnologias
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Front-end:**
 
-## Learn More
+![NextJS](https://img.shields.io/badge/NextJS-%23000?style=for-the-badge&logo=nextdotjs&logoColor=%23fff)
 
-To learn more about Next.js, take a look at the following resources:
+![ShadcnUi](https://img.shields.io/badge/ShadcnUi-%23000000?style=for-the-badge&logo=shadcnui&logoColor=%23fff)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![TailwindCss](https://img.shields.io/badge/Tailwind-%2306B6D4?style=for-the-badge&logo=tailwindcss&logoColor=%23fff)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Typescript](https://img.shields.io/badge/Typescript-%233178C6?style=for-the-badge&logo=typescript&logoColor=%23fff)
 
-## Deploy on Vercel
+**Back-end**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 🏗️ Funcionalidades
+
+- Pesquisa de receitas por nome
+- Exibição detalhada da receita com ingredientes e modo de preparo.
+- Formulário de contato.
+- Interface responsiva e intuitiva, adaptada para dispositivos móveis.
+- Suporte a temas dark e light
+
+## 🔗 Links
+
+- [Live Site URL](https://recipeon-next.vercel.app)
+
+## 🏆 Conclusão
+
+Desenvolver o Recipeon para o desafio AluraGeek foi uma experiência enriquecedora, onde aprendi:
+
+- A criação de uma aplicação interativa e de alta performance com Next.js.
+- A utilização de json-server para simular um back-end RESTful simples, facilitando o armazenamento e manipulação de dados de receitas e favoritos.
+- Implementação de funcionalidades como pesquisa dinâmica.
+
+## 📚 Recursos úteis
+
+- [Documentação do  **Next.js:**](https://nextjs.org/docs)
+- [Documentação do **Tailwind CSS**](https://tailwindcss.com/docs)
+- [Documentação do **TypeScript**](https://www.typescriptlang.org/docs/)
+- [Documentação do **Shadcn UI**](https://ui.shadcn.com/docs)
+
+## 👤 Autor
+
+- [@barcaca](https://www.github.com/barcaca)
+
+## 📜 Licença
+
+[MIT]()
+
