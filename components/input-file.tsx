@@ -4,7 +4,7 @@ import { FormControl, FormField, FormItem, FormLabel } from '@/components/ui/for
 import { Input } from '@/components/ui/input'
 import { ImageIcon, UploadCloudIcon, XIcon } from 'lucide-react'
 import Image from 'next/image'
-import { type ChangeEvent, useState } from 'react'
+import { type ChangeEvent, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 
 type ImageData = {
@@ -13,7 +13,7 @@ type ImageData = {
 }
 export function InputFile() {
   const [selectedImage, setSelectedImage] = useState<ImageData | null>(null)
-  const { control, setValue } = useFormContext()
+  const { control, setValue, watch } = useFormContext()
 
   const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -23,13 +23,19 @@ export function InputFile() {
         url: URL.createObjectURL(file),
       })
     }
-    e.target.value = ''
   }
 
   const clearImage = () => {
     setSelectedImage(null)
     setValue('imagem', null)
   }
+
+  useEffect(() => {
+    const imagem = watch('imagem')
+    if (imagem === undefined) {
+      setSelectedImage(null)
+    }
+  }, [watch])
 
   return (
     <FormField
@@ -56,7 +62,7 @@ export function InputFile() {
               <div className="relative flex h-40 w-full flex-col items-center justify-center rounded-md border border-dashed">
                 <UploadCloudIcon size={40} className="text-primary" />
                 <h2 className="text-center text-muted-foreground text-xs">
-                  PNG, JPG or BMP, max size 5MB
+                  PNG, JPG or BMP, max size 3MB
                 </h2>
                 <h4 className="text-center font-medium text-card-foreground text-sm">
                   Arraste ou clique para fazer upload
