@@ -1,7 +1,7 @@
 import { CreateForm } from '@/components/form/create-form'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { ChevronLeftIcon, SaveIcon } from 'lucide-react'
+import { ChevronLeftIcon } from 'lucide-react'
 import Link from 'next/link'
 
 export default function NovaReceita() {
@@ -13,11 +13,8 @@ export default function NovaReceita() {
             <Link href={'/'} className={cn(buttonVariants({ variant: 'ghost', size: 'sm' }))}>
               <ChevronLeftIcon size={16} /> Voltar
             </Link>
-            <h1 className="font-heading font-semibold text-3xl">Crie sua Receita</h1>
+            <h1 className="font-heading font-semibold text-xl sm:text-3xl">Crie sua Receita</h1>
           </div>
-          <Button type="submit" form="recipe-form">
-            <SaveIcon size={20} /> Salvar Receita
-          </Button>
         </header>
         <CreateForm />
       </div>
