@@ -1,7 +1,8 @@
 'use server'
+import type { TCreateRecipeDataAfterValidation } from '@/actions/receita/criar/schema'
 import type { TReceita } from '@/types/recipe'
 import { unstable_noStore as noStore } from 'next/cache'
-import { BASE_URL } from './base'
+import { APIKEY, BASE_URL } from './base'
 
 /**
  * Fetches recipes based on type, page, limit, and optional search query.
@@ -32,3 +33,50 @@ async function fetchRecipes(
 }
 
 export const getRecipes = fetchRecipes
+
+async function createRecipe(formData: TCreateRecipeDataAfterValidation): Promise<boolean> {
+  const apiUrl = `${BASE_URL.REST}`
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  }
+
+  try {
+    const response = await fetch(apiUrl, options)
+
+    if (!response.ok) {
+      return false
+    }
+    return true
+  } catch (error) {
+    return false
+  }
+}
+
+export const createRecipeApi = createRecipe
+
+async function uploadImage(imageFile: File): Promise<string | false> {
+  const formData = new FormData()
+  formData.append('image', imageFile)
+
+  try {
+    const response = await fetch(`https://api.imgbb.com/1/upload?key=${APIKEY}`, {
+      method: 'POST',
+      body: formData,
+    })
+
+    if (!response.ok) {
+      return false
+    }
+    const { data } = await response.json()
+
+    return data.url
+  } catch {
+    return false
+  }
+}
+
+export const uploadImageApi = uploadImage
