@@ -36,7 +36,7 @@ export function InputCategorias() {
   return (
     <FormField
       control={control}
-      name="categorias"
+      name="categoria"
       render={({ fieldState }) => (
         <FormItem className="relative">
           <FormLabel asChild>
@@ -49,7 +49,7 @@ export function InputCategorias() {
               <FormField
                 key={item.id}
                 control={control}
-                name="categorias"
+                name="categoria"
                 render={({ field }) => {
                   return (
                     <FormItem key={item.id} className="flex items-center space-y-0">
