@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { cinzel, poppins, raleway } from '@/fonts/font'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { Provider } from './providers'
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Provider>
           <Navbar />
-          {children}
+          <Suspense>{children}</Suspense>
           <Footer />
           <Toaster richColors position="top-center" />
         </Provider>
