@@ -11,7 +11,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form } from '@/components/ui/form'
 import { customToast } from '@/lib/custom-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AlarmClockIcon, BookOpenTextIcon, InfoIcon, SaveIcon, User2Icon } from 'lucide-react'
+import {
+  AlarmClockIcon,
+  BookOpenTextIcon,
+  EraserIcon,
+  InfoIcon,
+  SaveIcon,
+  User2Icon,
+} from 'lucide-react'
 import { startTransition, useActionState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -67,6 +74,7 @@ export function CreateForm() {
             variant={'destructive'}
             onClick={() => form.reset()}
           >
+            <EraserIcon size={20} />
             Limpar Campos
           </Button>
         </div>
