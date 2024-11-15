@@ -14,8 +14,9 @@ Este projeto é uma aplicação desenvolvida para o desafio AluraGeek, voltada p
 
 ## 🖼️ Screenshots
 
-![Dark Thumb](/public/thumbanil-dark.png)
-![Light Thumb](/public/thumbanil-light.png)
+![Dark Thumb](/public/DarkThumb.png)
+
+![Light Thumb](/public/LightThumb.png)
 
 ## 🛠️ Tecnologias
 
