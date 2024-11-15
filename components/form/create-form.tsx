@@ -3,16 +3,17 @@ import { createRecipe } from '@/actions/receita/criar'
 import { CreateRecipeSchema, type TCreateRecipeData } from '@/actions/receita/criar/schema'
 import { InputCategorias } from '@/components/input-categorias'
 import { InputFile } from '@/components/input-file'
+import { InputIngredients } from '@/components/input-ingredients'
+import { InputSteps } from '@/components/input-steps'
 import { InputText } from '@/components/input-text'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form } from '@/components/ui/form'
 import { customToast } from '@/lib/custom-toast'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { AlarmClockIcon, BookOpenTextIcon, InfoIcon, User2Icon } from 'lucide-react'
+import { AlarmClockIcon, BookOpenTextIcon, InfoIcon, SaveIcon, User2Icon } from 'lucide-react'
 import { startTransition, useActionState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { InputIngredients } from '../input-ingredients'
-import { InputSteps } from '../input-steps'
 
 export function CreateForm() {
   const [formState, formAction, isPending] = useActionState(createRecipe, undefined)
@@ -24,11 +25,13 @@ export function CreateForm() {
       serve: '' as unknown as number,
       tempo: '' as unknown as number,
       descricao: '',
-      categorias: [],
+      categoria: [],
       ingredientes: [{ quantidade: '', unidade: undefined, nome: '' }],
       passos: [''],
     },
   })
+
+  const { reset } = form
 
   function onSubmit(formData: TCreateRecipeData) {
     startTransition(() => formAction(formData))
@@ -37,8 +40,9 @@ export function CreateForm() {
   useEffect(() => {
     if (formState) {
       customToast(formState)
+      formState.status < 400 && reset()
     }
-  }, [formState])
+  }, [formState, reset])
 
   return (
     <Form {...form}>
@@ -47,10 +51,25 @@ export function CreateForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         id="recipe-form"
         name="recipe-form"
-        className="flex w-full flex-col gap-5 md:h-[660px] md:flex-row"
+        className="relative flex w-full flex-col gap-5 md:h-[660px] md:flex-row"
       >
         <FormDetails />
         <FormSteps />
+        <div className="-top-16 absolute right-0 flex gap-2">
+          <Button type="submit" form="recipe-form" className="" disabled={isPending}>
+            <SaveIcon size={20} /> Salvar Receita
+          </Button>
+          <Button
+            type="reset"
+            form="recipe-form"
+            className=""
+            disabled={isPending}
+            variant={'destructive'}
+            onClick={() => form.reset()}
+          >
+            Limpar Campos
+          </Button>
+        </div>
       </form>
     </Form>
   )
