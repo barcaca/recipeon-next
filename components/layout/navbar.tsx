@@ -3,6 +3,7 @@ import { ThemeToggle } from '@/components/theme/theme-toggle'
 import Logo from '@/public/logo.svg'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Suspense } from 'react'
 
 export function Navbar() {
   return (
@@ -12,7 +13,9 @@ export function Navbar() {
           <Image src={Logo} alt="Recipeon logo" className="size-8" />
           <p className="hidden font-bold font-cinzel text-primary-foreground sm:block">RecipeoN</p>
         </Link>
-        <SearchInput />
+        <Suspense>
+          <SearchInput />
+        </Suspense>
         <ThemeToggle />
       </header>
     </nav>
