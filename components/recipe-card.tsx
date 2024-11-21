@@ -6,6 +6,7 @@ import { RecipeDialogDelete } from './recipe-dialog-delete'
 import { RecipeDialogView } from './recipe-dialog-view'
 
 export function RecipeCard({ receita }: { receita: TReceita }) {
+  const isCreatedRecipe = receita.id > 60
   return (
     <Card
       className="flex h-auto flex-col overflow-visible text-foreground shadow-shape"
@@ -41,7 +42,7 @@ export function RecipeCard({ receita }: { receita: TReceita }) {
           </CardContent>
           <CardFooter className="justify-between gap-1 p-0">
             <RecipeDialogView receita={receita} />
-            <RecipeDialogDelete id={receita.id} />
+            {isCreatedRecipe && <RecipeDialogDelete id={receita.id} />}
           </CardFooter>
         </div>
       </div>
